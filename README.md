@@ -1,5 +1,5 @@
 # daoDapp
-*src
-  *interface
-  *componets
-  *locals
+>src
+  -interface
+  -componets
+  -locals
