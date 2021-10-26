@@ -4,24 +4,15 @@
 DAO的管理及币值兑换的应用程序 
 
 ## src/componets 组件
-- CreateDao.js
-Dao 的管理，包括注册、创建OS、发行token 及logo的更改。
-###### daoConnect.js
-连接钱包及接口的初始化
-###### daoList.js
-Dao 列表
-###### daoSelect.js
-DAO下拉选择组件 
-###### daoSelectWindow.js
-币值兑换 dao 选择窗口组件 
-###### header.js
-菜单
-###### IADD_swap.js
-币值兑换
-###### tips.js
-提示窗口
-###### footer.js
-网页脚注
+- CreateDao.js : Dao 的管理，包括注册、创建OS、发行token 及logo的更改。
+- daoConnect.js : 连接钱包及接口的初始化
+- daoList.js : Dao 列表
+- daoSelect.js : DAO下拉选择组件 
+- daoSelectWindow.js : 币值兑换 dao 选择窗口组件 
+- header.js : 菜单
+- IADD_swap.js : 币值兑换
+- tips.js : 提示窗口
+- footer.js : 网页脚注
 
 ## src/interface 接口
 ###### commulate.js
