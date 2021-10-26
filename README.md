@@ -15,12 +15,13 @@ DAO的管理及币值兑换的应用程序
 - footer.js : 网页脚注
 
 ## src/interface 接口
-###### commulate.js
-###### ERC20s.js
-###### IADD.js
-###### logo.js
-###### register.js
-###### utoken.js
+- commulate.js : 获取最小兑换量接口
+- ERC20s.js ： 发行token 接口
+- IADD.js ： utoken 和 token, token 和 token 间的相互兑换
+- logo.js ： logo 更改接口
+- register.js ：dao注册、创建os 接口
+- utoken.js ：eth 兑换 utoken 接口
+- 
 接口的初始化：
 ```
 new 接口名称(_web3,_selectAccount);
@@ -30,8 +31,64 @@ _selectAccount: 钱包的用户ID
 ```
 
 ## src/locals 语言 
-###### daodapp.zh-CN.js ： 中文
+- daodapp.zh-CN.js ： 中文
 
+## 网站的启动
+```
+
+import Tips from "./components/tips";
+import Header from "./components/header";
+import DaoList from "./components/daoList";
+import IADDSwap from "./components/IADD_swap";
+import CreateDao from "./components/CreateDao";
+import DaoConnect from "./components/daoConnect";
+
+ //初始化提示窗口
+const tips=new Tips();
+tips.render();
+
+//生成菜单
+const daoHeader=new Header();
+daoHeader.render(); 
+
+ //生成dao 列表模块
+const daolist=new DaoList();
+daolist.render(daoHeader.menu[0]);
+
+//生成兑换模块
+const iaddSwap=new IADDSwap(tips);
+iaddSwap.render(daoHeader.menu[1]); 
+
+//生成dao 创建模块
+const daocreate=new CreateDao(tips);
+propertis.daoCreate=daocreate;
+daocreate.render(daoHeader.menu[2]) 
+
+//生成连接钱包组件 
+const _daoConnect=new DaoConnect(
+  function(){ //连接后 回调
+    iaddSwap.mess.html("-");
+    iaddSwap.blanceof1.html(daodappData.swap[6]+ '：'+propertis.ethBalance);
+    iaddSwap.upJin=propertis.ethBalance;
+    iaddSwap.daoInput1.removeAttr('readonly');
+    iaddSwap.daoInput1.trigger('input');
+
+    daocreate.address.val(propertis.selectedAccount)
+    daocreate.os_address.val(propertis.selectedAccount)
+ },
+  function(){  //退出后 回调
+    iaddSwap.mess.html(daodappData.swap[5]);
+    iaddSwap.swapBtn[0].disabled=true;
+    iaddSwap.daoInput1.attr('readonly',true);
+  
+  },
+  daoHeader.connectBtn[0],
+  daoHeader.disconnectBtn[0],
+  daoHeader.connectProve
+)
+```
+
+## IADD 主要兑换函数
 ```
 {
 // utoken 兑换成 token
