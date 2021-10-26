@@ -4,7 +4,7 @@
 DAO的管理及币值兑换的应用程序 
 
 ## src/componets 组件
-###### CreateDao.js
+- CreateDao.js
 Dao 的管理，包括注册、创建OS、发行token 及logo的更改。
 ###### daoConnect.js
 连接钱包及接口的初始化
