@@ -1,7 +1,7 @@
 
 
 # daoDapp
-DAO的管理及币值兑换的应用程序 
+DAO的管理及币值兑换的应用程序 。本程序需要 数据库和 java 后台服务支持。  data.sql mysql 数据库脚本, java_server.rar java后台服务。
 
 ## src/componets 组件
 - CreateDao.js : Dao 的管理，包括注册、创建OS、发行token 及logo的更改。
